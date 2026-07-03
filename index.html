@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en" class="" id="html-lang">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jai Shree E-Mitra - Complete Government & Digital Services Under One Roof</title>
+  <meta name="description" content="Your trusted partner for all digital government services, certificates (caste, domicile, birth), e-KYC, utility bill payments, and online form submissions in RK Puram B, Kota.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              saffron: '#FF9933',
+              saffronHover: '#E6801A',
+              saffronLight: '#FFECE0',
+              blue: '#2563EB',
+              blueDark: '#1D4ED8',
+              navy: '#0F172A',
+            }
+          },
+          fontFamily: {
+            display: ['Outfit', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+            hindi: ['Rozha One', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-slate-50 text-slate-700 dark:bg-slate-950 dark:text-slate-300">
+
+  <!-- ------------------------------------------------------------- -->
+  <!-- 0. Dynamic Scheme Notification Banner -->
+  <!-- ------------------------------------------------------------- -->
+  <div id="scheme-alert-banner" class="bg-gradient-to-r from-brand-saffron via-amber-500 to-brand-blue text-white px-4 py-2 text-center text-xs md:text-sm font-semibold relative flex items-center justify-center gap-2 z-50">
+    <span class="bg-white/20 px-2 py-0.5 rounded text-[10px] uppercase font-bold" data-translate="newBanner">New Scheme Alert:</span>
+    <span id="scheme-banner-text" class="truncate max-w-[70vw] md:max-w-none">Loading latest schemes...</span>
+    <button id="close-banner-btn" class="absolute right-3 hover:opacity-80 focus:outline-none" aria-label="Close alert banner">
+      <i data-lucide="x" class="w-4 h-4"></i>
+    </button>
+  </div>
+
+  <!-- ------------------------------------------------------------- -->
+  <!-- 1. Sticky Navigation Header -->
+  <!-- ------------------------------------------------------------- -->
+  <header class="sticky top-0 w-full z-40 glass-nav shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo & Title -->
+      <a href="#home" onclick="navigateToSection('home')" class="flex items-center space-x-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-saffron to-brand-blue flex items-center justify-center text-white font-extrabold shadow-md group-hover:scale-105 transition-transform duration-200">
+          <span class="text-lg">JS</span>
+        </div>
+        <div>
+          <h1 class="text-xl md:text-2xl font-black text-slate-800 dark:text-white leading-none tracking-tight" data-translate="title">Jai Shree E-Mitra</h1>
+          <p class="text-[10px] md:text-xs text-brand-blue dark:text-brand-saffron font-bold uppercase tracking-wider" data-translate="tagline">Your Trusted Digital Service Center</p>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden xl:flex items-center space-x-1">
+        <a href="#home" onclick="navigateToSection('home')" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-brand-blue dark:text-slate-300 dark:hover:text-brand-saffron transition-colors duration-150" data-translate="navHome">Home</a>
+        <a href="#about" onclick="navigateToSection('about')" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-brand-blue dark:text-slate-300 dark:hover:text-brand-saffron transition-colors duration-150" data-translate="navAbout">About Us</a>
+        <a href="#services" onclick="navigateToSection('services')" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-brand-blue dark:text-slate-300 dark:hover:text-brand-saffron transition-colors duration-150" data-translate="navServices">Services</a>
+        <a href="#documents" onclick="navigateToSection('documents')" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-brand-blue dark:text-slate-300 dark:hover:text-brand-saffron transition-colors duration-150" data-translate="navDocs">Required Documents</a>
+        <a href="#updates" onclick="navigateToSection('updates')" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-brand-blue dark:text-slate-300 dark:hover:text-brand-saffron transition-colors duration-150" data-translate="navSchemes">Government Schemes</a>
+        <a href="#reviews" onclick="navigateToSection('reviews')" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-brand-blue dark:text-slate-300 dark:hover:text-brand-saffron transition-colors duration-150" data-translate="navReviews">Reviews</a>
+        <a href="#gallery" onclick="navigateToSection('gallery')" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-brand-blue dark:text-slate-300 dark:hover:text-brand-saffron transition-colors duration-150" data-translate="navGallery">Gallery</a>
+        <a href="#faq" onclick="navigateToSection('faq')" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-brand-blue dark:text-slate-300 dark:hover:text-brand-saffron transition-colors duration-150" data-translate="navFaq">FAQ</a>
+        <a href="#contact" onclick="navigateToSection('contact')" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-brand-blue dark:text-slate-300 dark:hover:text-brand-saffron transition-colors duration-150" data-translate="navContact">Contact</a>
+        <span class="w-[1px] h-6 bg-slate-200 dark:bg-slate-800 mx-2"></span>
+        <button onclick="navigateToPage('track')" class="px-3.5 py-1.5 rounded-lg text-xs font-bold border border-brand-blue/30 text-brand-blue hover:bg-brand-blue/5 dark:text-brand-saffron dark:border-brand-saffron/30 dark:hover:bg-brand-saffron/5 transition-colors duration-150" data-translate="navTrack">Track Application</button>
+        <button onclick="navigateToPage('downloads')" class="px-3 py-2 text-xs font-bold text-slate-600 hover:text-brand-blue dark:text-slate-300 dark:hover:text-brand-saffron transition-colors duration-150" data-translate="navDownloads">Downloads</button>
+      </nav>
+
+      <!-- Language & Theme Toggles + Mobile Menu Toggle -->
+      <div class="flex items-center space-x-3">
+        <!-- Language Selector -->
+        <div class="relative">
+          <select id="lang-select" onchange="changeLanguage(this.value)" class="appearance-none bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs md:text-sm font-semibold py-1.5 pl-3 pr-8 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-blue cursor-pointer">
+            <option value="en">English</option>
+            <option value="hi">हिन्दी</option>
+          </select>
+          <div class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none text-slate-500">
+            <i data-lucide="globe" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+        <!-- Light / Dark Mode Toggle -->
+        <button onclick="toggleDarkMode()" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors focus:outline-none" aria-label="Toggle dark mode">
+          <i id="theme-toggle-icon" data-lucide="moon" class="w-4 h-4 md:w-5 h-5"></i>
+        </button>
+
+        <!-- Admin Shortcut -->
+        <button onclick="navigateToPage('admin')" class="hidden sm:inline-flex p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors focus:outline-none" title="Admin Panel">
+          <i data-lucide="settings" class="w-4 h-4 md:w-5 h-5"></i>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button onclick="toggleMobileMenu()" class="xl:hidden p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none" aria-label="Open navigation menu">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-menu" class="hidden xl:hidden fixed top-20 left-0 w-full bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 z-30 shadow-lg px-4 py-6 flex flex-col space-y-4">
+    <a href="#home" onclick="navigateToSection('home')" class="text-base font-semibold py-1.5 text-slate-800 dark:text-slate-200" data-translate="navHome">Home</a>
+    <a href="#about" onclick="navigateToSection('about')" class="text-base font-semibold py-1.5 text-slate-800 dark:text-slate-200" data-translate="navAbout">About Us</a>
+    <a href="#services" onclick="navigateToSection('services')" class="text-base font-semibold py-1.5 text-slate-800 dark:text-slate-200" data-translate="navServices">Services</a>
+    <a href="#documents" onclick="navigateToSection('documents')" class="text-base font-semibold py-1.5 text-slate-800 dark:text-slate-200" data-translate="navDocs">Required Documents</a>
+    <a href="#updates" onclick="navigateToSection('updates')" class="text-base font-semibold py-1.5 text-slate-800 dark:text-slate-200" data-translate="navSchemes">Government Schemes</a>
+    <a href="#reviews" onclick="navigateToSection('reviews')" class="text-base font-semibold py-1.5 text-slate-800 dark:text-slate-200" data-translate="navReviews">Reviews</a>
+    <a href="#gallery" onclick="navigateToSection('gallery')" class="text-base font-semibold py-1.5 text-slate-800 dark:text-slate-200" data-translate="navGallery">Gallery</a>
+    <a href="#faq" onclick="navigateToSection('faq')" class="text-base font-semibold py-1.5 text-slate-800 dark:text-slate-200" data-translate="navFaq">FAQ</a>
+    <a href="#contact" onclick="navigateToSection('contact')" class="text-base font-semibold py-1.5 text-slate-800 dark:text-slate-200" data-translate="navContact">Contact</a>
+    <div class="h-[1px] bg-slate-100 dark:bg-slate-800 my-2"></div>
+    <div class="flex items-center space-x-2">
+      <button onclick="navigateToPage('track')" class="flex-1 py-2 rounded-lg bg-brand-blue text-white text-center text-sm font-bold" data-translate="navTrack">Track Application</button>
+      <button onclick="navigateToPage('downloads')" class="flex-1 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-center text-sm font-bold" data-translate="navDownloads">Downloads</button>
+      <button onclick="navigateToPage('admin')" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-center text-sm font-bold"><i data-lucide="settings" class="w-5 h-5 mx-auto"></i></button>
+    </div>
+  </div>
+
+  <!-- ------------------------------------------------------------- -->
+  <!-- Main SPA Landing Sections Container -->
+  <!-- ------------------------------------------------------------- -->
+  <main id="main-landing-sections">
+
+    <!-- 1. Hero Section -->
+    <section id="home" class="relative pt-10 pb-20 md:pt-16 md:pb-28 overflow-hidden bg-gradient-to-b from-brand-saffron/10 via-brand-blue/5 to-transparent">
+      <!-- Ambient Glow Blobs -->
+      <div class="absolute top-1/4 left-10 w-72 h-72 rounded-full bg-brand-saffron/10 blur-3xl animate-pulse-slow"></div>
+      <div class="absolute bottom-10 right-10 w-96 h-96 rounded-full bg-brand-blue/10 blur-3xl animate-pulse-slow"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Text Columns -->
+        <div class="lg:col-span-7 space-y-6 md:space-y-8 text-center lg:text-left">
+          
+          <div class="inline-flex items-center space-x-2 bg-brand-saffron/10 dark:bg-brand-saffron/20 border border-brand-saffron/30 px-3 py-1.5 rounded-full text-brand-saffron text-xs md:text-sm font-bold uppercase tracking-wider animate-float">
+            <i data-lucide="award" class="w-4 h-4"></i>
+            <span data-translate="tagline">Your Trusted Digital Service Center</span>
+          </div>
+
+          <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 dark:text-white leading-none tracking-tight" data-translate="heroHeading">
+            Complete Government & Digital Services Under One Roof
+          </h2>
+          
+          <p class="text-base sm:text-lg md:text-xl font-semibold text-slate-600 dark:text-slate-300 flex flex-wrap justify-center lg:justify-start gap-x-3 gap-y-1">
+            <span class="text-brand-saffron">⚡ Fast</span> • 
+            <span class="text-brand-blue">✔ Trusted</span> • 
+            <span class="text-green-500">🔒 Secure</span> • 
+            <span class="text-pink-500">💰 Affordable</span> • 
+            <span class="text-indigo-500">💼 Professional</span>
+          </p>
+
+          <!-- Action Buttons Grid -->
+          <div class="flex flex-wrap justify-center lg:justify-start gap-4">
+            <a href="tel:+919783625549" class="px-8 py-4 rounded-2xl bg-brand-blue hover:bg-brand-blueDark text-white font-bold text-base shadow-lg shadow-brand-blue/20 flex items-center hover-glow transition-transform duration-200">
+              <i data-lucide="phone-call" class="w-5 h-5 mr-2"></i>
+              <span data-translate="btnCallNow">Call Now</span>
+            </a>
+            <a href="https://wa.me/919783625549" target="_blank" class="px-8 py-4 rounded-2xl bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-base shadow-lg shadow-green-500/20 flex items-center hover-glow transition-transform duration-200">
+              <i data-lucide="message-circle" class="w-5 h-5 mr-2"></i>
+              <span data-translate="btnWhatsApp">WhatsApp</span>
+            </a>
+            <a href="#services" onclick="navigateToSection('services')" class="px-8 py-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-white font-bold text-base shadow-sm hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center hover-glow transition-transform duration-200">
+              <span data-translate="btnViewServices">View Services</span>
+            </a>
+            <a href="https://maps.google.com/?q=RK+Puram+B+Kota+Behind+Muktidham" target="_blank" class="px-8 py-4 rounded-2xl bg-brand-saffron hover:bg-brand-saffronHover text-white font-bold text-base shadow-lg shadow-brand-saffron/20 flex items-center hover-glow transition-transform duration-200">
+              <i data-lucide="map-pin" class="w-5 h-5 mr-2"></i>
+              <span data-translate="btnGetDirections">Get Directions</span>
+            </a>
+          </div>
+
+          <!-- Rating & Verification badging -->
+          <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <!-- Google Rating -->
+            <div class="flex items-center space-x-2 bg-white dark:bg-slate-900 px-4 py-2 rounded-xl shadow-sm border border-slate-200/50 dark:border-slate-800/50">
+              <div class="flex items-center space-x-1">
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+                <span class="font-bold text-slate-800 dark:text-white">4.9</span>
+              </div>
+              <span class="text-xs text-slate-400 border-l border-slate-200 dark:border-slate-800 pl-2">Google Customer Rating</span>
+            </div>
+
+            <!-- E-Mitra Auth badge -->
+            <div class="flex items-center space-x-2 bg-white dark:bg-slate-900 px-4 py-2 rounded-xl shadow-sm border border-slate-200/50 dark:border-slate-800/50">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+              <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Authorized Rajasthan E-Mitra</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Illustration Column -->
+        <div class="lg:col-span-5 relative flex items-center justify-center">
+          <div class="relative w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-gradient-to-tr from-brand-saffron/20 via-brand-blue/15 to-transparent flex items-center justify-center p-8 animate-float shadow-inner">
+            <!-- Decorative Inner Circle -->
+            <div class="absolute inset-4 rounded-full bg-white dark:bg-slate-900 shadow-lg flex flex-col justify-center items-center p-6 border border-slate-200/40 dark:border-slate-800/40">
+              <div class="w-20 h-20 bg-brand-blue/10 rounded-2xl flex items-center justify-center mb-4 text-brand-blue">
+                <i data-lucide="shield-check" class="w-12 h-12"></i>
+              </div>
+              <h3 class="text-lg font-bold text-slate-800 dark:text-white text-center">Government Approved Center</h3>
+              <p class="text-xs text-slate-500 text-center mt-2 leading-relaxed">Secured online applications, real-time tracking, digital certificate issuance & biometric updates.</p>
+              
+              <!-- Sub-cards details -->
+              <div class="mt-4 flex space-x-2">
+                <span class="text-[10px] bg-brand-saffron/10 text-brand-saffron px-2 py-0.5 rounded-full font-bold">14+ Key Services</span>
+                <span class="text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 px-2 py-0.5 rounded-full font-bold">Kota District</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Trust Badges Section -->
+    <section class="border-y border-slate-200/60 dark:border-slate-800/60 bg-white/50 dark:bg-slate-900/50 py-10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div class="flex flex-col items-center">
+          <div class="w-12 h-12 rounded-xl bg-blue-50 dark:bg-slate-800 text-brand-blue flex items-center justify-center mb-3">
+            <i data-lucide="award" class="w-6 h-6"></i>
+          </div>
+          <h4 class="font-bold text-slate-800 dark:text-white" data-translate="badgeTrusted">Trusted Service</h4>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="w-12 h-12 rounded-xl bg-saffron-light dark:bg-slate-800 text-brand-saffron flex items-center justify-center mb-3">
+            <i data-lucide="zap" class="w-6 h-6"></i>
+          </div>
+          <h4 class="font-bold text-slate-800 dark:text-white" data-translate="badgeFast">Fast Processing</h4>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="w-12 h-12 rounded-xl bg-green-50 dark:bg-slate-800 text-green-600 flex items-center justify-center mb-3">
+            <i data-lucide="shield-check" class="w-6 h-6"></i>
+          </div>
+          <h4 class="font-bold text-slate-800 dark:text-white" data-translate="badgeSecure">Secure Documentation</h4>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="w-12 h-12 rounded-xl bg-pink-50 dark:bg-slate-800 text-pink-600 flex items-center justify-center mb-3">
+            <i data-lucide="smile" class="w-6 h-6"></i>
+          </div>
+          <h4 class="font-bold text-slate-800 dark:text-white" data-translate="badgeSatisfaction">Customer Satisfaction</h4>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. About Us Section -->
+    <section id="about" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Content Column -->
+        <div class="lg:col-span-7 space-y-6">
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white" data-translate="aboutHeading">About Jai Shree E-Mitra</h2>
+          <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed" data-translate="aboutText1">
+            Jai Shree E-Mitra is your premier digital service and government documentation center located in RK Puram B, Kota (Behind Muktidham). We specialize in making complex government processes simple, transparent, and hassle-free for all citizens.
+          </p>
+          <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed" data-translate="aboutText2">
+            Our mission is to bridge the digital gap by offering reliable, quick, and affordable services. From utility bill payments to vital documentation (such as Birth, Caste, Domicile certificates) and online applications for national & state government schemes, we guide you at every step with absolute accuracy and confidentiality.
+          </p>
+          <div class="pt-4">
+            <a href="#contact" onclick="navigateToSection('contact')" class="inline-flex items-center text-brand-blue dark:text-brand-saffron font-bold text-base hover:underline">
+              <span data-translate="supportTitle">Help & Support</span>
+              <i data-lucide="arrow-right" class="w-5 h-5 ml-1"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Highlights Features Column -->
+        <div class="lg:col-span-5 space-y-4 bg-slate-100/50 dark:bg-slate-900/40 p-6 md:p-8 rounded-3xl border border-slate-200/50 dark:border-slate-800/50">
+          <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-6 border-b pb-2 border-slate-200/50 dark:border-slate-800/50" data-translate="whyChooseUs">Why Customers Trust Us</h3>
+          
+          <div class="flex items-start space-x-3.5">
+            <div class="text-brand-saffron mt-0.5"><i data-lucide="shield-check" class="w-5 h-5"></i></div>
+            <div>
+              <h4 class="font-bold text-slate-800 dark:text-white text-sm" data-translate="whyTrustedTitle">Trusted Digital Services</h4>
+              <p class="text-xs text-slate-500 mt-0.5" data-translate="whyTrustedDesc">Years of experience helping citizens get correct paperwork without delays.</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start space-x-3.5">
+            <div class="text-brand-blue mt-0.5"><i data-lucide="zap" class="w-5 h-5"></i></div>
+            <div>
+              <h4 class="font-bold text-slate-800 dark:text-white text-sm" data-translate="whyFastTitle">Fast Processing</h4>
+              <p class="text-xs text-slate-500 mt-0.5" data-translate="whyFastDesc">No long queues. We process applications promptly with minimal turnaround time.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-3.5">
+            <div class="text-green-600 mt-0.5"><i data-lucide="wallet" class="w-5 h-5"></i></div>
+            <div>
+              <h4 class="font-bold text-slate-800 dark:text-white text-sm" data-translate="whyAffordableTitle">Affordable Charges</h4>
+              <p class="text-xs text-slate-500 mt-0.5" data-translate="whyAffordableDesc">Transparent government fees and highly economical service charges.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-3.5">
+            <div class="text-pink-600 mt-0.5"><i data-lucide="lock" class="w-5 h-5"></i></div>
+            <div>
+              <h4 class="font-bold text-slate-800 dark:text-white text-sm" data-translate="whySecureTitle">Secure Documentation</h4>
+              <p class="text-xs text-slate-500 mt-0.5" data-translate="whySecureDesc">Your identity and personal information are handled with top-tier security standards.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-3.5">
+            <div class="text-indigo-500 mt-0.5"><i data-lucide="user-check" class="w-5 h-5"></i></div>
+            <div>
+              <h4 class="font-bold text-slate-800 dark:text-white text-sm" data-translate="whyProfessionalTitle">Professional Guidance</h4>
+              <p class="text-xs text-slate-500 mt-0.5" data-translate="whyProfessionalDesc">Expert advice on what forms to submit, preventing rejections or mistakes.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-3.5">
+            <div class="text-emerald-500 mt-0.5"><i data-lucide="users" class="w-5 h-5"></i></div>
+            <div>
+              <h4 class="font-bold text-slate-800 dark:text-white text-sm" data-translate="whySupportTitle">Friendly Support</h4>
+              <p class="text-xs text-slate-500 mt-0.5" data-translate="whySupportDesc">Always available via phone, chat, or in-person to solve your queries.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Our Services Section -->
+    <section id="services" class="py-20 bg-slate-100/50 dark:bg-slate-900/20 border-y border-slate-200/50 dark:border-slate-800/50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white" data-translate="servicesHeading">Our Premium Services</h2>
+          <p class="text-base text-slate-500 dark:text-slate-400" data-translate="servicesSub">Click on any service card to view complete benefits, document checklists, and processing times.</p>
+        </div>
+        
+        <!-- Dynamic Services Grid -->
+        <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Required Documents checker section -->
+    <section id="documents" class="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 space-y-3">
+        <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white" data-translate="docCheckerTitle">Required Documents Search</h2>
+        <p class="text-sm md:text-base text-slate-500 dark:text-slate-400" data-translate="docCheckerSub">Select a service below to instantly check required documents and processing times before visiting.</p>
+      </div>
+
+      <div class="space-y-6">
+        <!-- Service select dropdown -->
+        <div class="relative max-w-md mx-auto">
+          <select id="docs-service-select" onchange="checkDocuments()" class="w-full appearance-none bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-white font-bold py-4 px-6 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-blue cursor-pointer shadow-sm">
+            <!-- Populated by JS -->
+          </select>
+          <div class="absolute inset-y-0 right-4 flex items-center pointer-events-none text-slate-500">
+            <i data-lucide="chevron-down" class="w-5 h-5"></i>
+          </div>
+        </div>
+
+        <!-- Rendered Search Result Container -->
+        <div id="docs-result-container" class="hidden max-w-xl mx-auto">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Government Schemes & Latest Updates section -->
+    <section id="updates" class="py-20 bg-slate-100/50 dark:bg-slate-900/20 border-y border-slate-200/50 dark:border-slate-800/50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white" data-translate="updatesTitle">Latest Government Schemes & Updates</h2>
+          <p class="text-base text-slate-500 dark:text-slate-400" data-translate="updatesSub">Stay informed about active scholarships, state schemes, RTE admissions, and public alerts.</p>
+        </div>
+
+        <div id="schemes-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Customer Reviews section -->
+    <section id="reviews" class="py-20 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white" data-translate="reviewTitle">What Our Customers Say</h2>
+          <p class="text-base text-slate-500 dark:text-slate-400" data-translate="reviewSub">Genuine reviews from citizens who got their work completed successfully.</p>
+        </div>
+
+        <!-- Horizontal scroll reviews list -->
+        <div id="reviews-carousel" class="flex overflow-x-auto pb-8 space-x-6 scrollbar-hide py-2 px-1 scroll-smooth">
+          <!-- Populated by JavaScript -->
+        </div>
+
+        <!-- Write review form -->
+        <div class="max-w-xl mx-auto mt-16 glass p-6 md:p-8 rounded-3xl border border-slate-200/60 dark:border-slate-800/60">
+          <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-6 flex items-center" data-translate="addReviewTitle">Share Your Experience</h3>
+          
+          <form id="review-form" onsubmit="submitReview(event)" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1" data-translate="fullName">Full Name</label>
+                <input type="text" id="review-name" required class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue text-slate-800 dark:text-white">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1" data-translate="mobileNum">Mobile Number</label>
+                <input type="tel" id="review-phone" required pattern="[0-9]{10}" placeholder="e.g. 9876543210" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue text-slate-800 dark:text-white">
+              </div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
+              <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1" data-translate="rating">Rating (Stars)</label>
+                <select id="review-rating" required class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-brand-blue text-slate-800 dark:text-white cursor-pointer">
+                  <option value="5">⭐⭐⭐⭐⭐ (5 / 5)</option>
+                  <option value="4">⭐⭐⭐⭐ (4 / 5)</option>
+                  <option value="3">⭐⭐⭐ (3 / 5)</option>
+                  <option value="2">⭐⭐ (2 / 5)</option>
+                  <option value="1">⭐ (1 / 5)</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1" data-translate="uploadPhoto">Upload Photo (Optional)</label>
+                <input type="file" id="review-photo" accept="image/*" class="w-full text-xs text-slate-500 dark:text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-blue-50 file:text-brand-blue dark:file:bg-slate-800 dark:file:text-brand-saffron hover:file:opacity-90 cursor-pointer">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1" data-translate="writeReview">Write your review...</label>
+              <textarea id="review-text" required rows="3" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue text-slate-800 dark:text-white"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-3 rounded-xl bg-brand-blue dark:bg-brand-saffron hover-glow text-white font-bold text-sm shadow-md" data-translate="submitReviewBtn">Submit Review</button>
+          </form>
+
+          <div id="review-thankyou-msg" class="hidden mt-4 p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-sm font-semibold flex items-center border border-emerald-200 dark:border-emerald-900/30">
+            <i data-lucide="check-circle" class="w-5 h-5 mr-3 flex-shrink-0"></i>
+            <span data-translate="reviewThankYou">Thank you! Your review has been submitted and will appear after verification.</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Gallery Section -->
+    <section id="gallery" class="py-20 bg-slate-100/50 dark:bg-slate-900/20 border-y border-slate-200/50 dark:border-slate-800/50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white" data-translate="navGallery">Gallery</h2>
+          <p class="text-base text-slate-500 dark:text-slate-400">Step inside our professional digital center. Verified local service operations in Kota.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Image 1: Shop Front -->
+          <div class="group relative overflow-hidden rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 aspect-[4/3] cursor-pointer" onclick="openLightbox('assets/shop_front.jpg', 'Jai Shree E-Mitra - Office Front view in RK Puram B')">
+            <img src="assets/shop_front.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Shop Front View">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+              <span class="text-white font-bold text-sm">Shop Front - RK Puram B</span>
+            </div>
+          </div>
+
+          <!-- Image 2: Office Interior -->
+          <div class="group relative overflow-hidden rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 aspect-[4/3] cursor-pointer" onclick="openLightbox('assets/office_interior.jpg', 'Inside workstation area for customer service')">
+            <img src="assets/office_interior.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Office Interior">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+              <span class="text-white font-bold text-sm">Office Workspace & Interior</span>
+            </div>
+          </div>
+
+          <!-- Image 3: Customer Service desk -->
+          <div class="group relative overflow-hidden rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 aspect-[4/3] cursor-pointer" onclick="openLightbox('assets/customer_service.jpg', 'Citizens receiving document consulting and verification forms support')">
+            <img src="assets/customer_service.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Customer Service Desk">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+              <span class="text-white font-bold text-sm">Happy Customers Consulting Desk</span>
+            </div>
+          </div>
+
+          <!-- Image 4: Workstation -->
+          <div class="group relative overflow-hidden rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 aspect-[4/3] cursor-pointer" onclick="openLightbox('assets/workstation.jpg', 'Double-screen setup for highly efficient data entry and form fillings')">
+            <img src="assets/workstation.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Data Entry Workstation">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+              <span class="text-white font-bold text-sm">High-Speed Workstation</span>
+            </div>
+          </div>
+
+          <!-- Image 5: Certificates -->
+          <div class="group relative overflow-hidden rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 aspect-[4/3] cursor-pointer" onclick="openLightbox('assets/certificates.jpg', 'Government authorizations and district certifications')">
+            <img src="assets/certificates.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Licenses & Certifications">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+              <span class="text-white font-bold text-sm">Government Authorizations & Licenses</span>
+            </div>
+          </div>
+
+          <!-- Image 6: Digital Services representation -->
+          <div class="group relative overflow-hidden rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 aspect-[4/3] cursor-pointer" onclick="openLightbox('assets/digital_services.jpg', 'Secure e-KYC biometric hardware and smart printing utilities')">
+            <img src="assets/digital_services.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Biometrics & Hardware">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+              <span class="text-white font-bold text-sm">Biometric e-KYC & Printing Devices</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. FAQ Section -->
+    <section id="faq" class="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 space-y-3">
+        <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white" data-translate="faqTitle">Frequently Asked Questions</h2>
+        <p class="text-base text-slate-500 dark:text-slate-400" data-translate="faqSub">Find quick answers to common questions about our services and operating details.</p>
+      </div>
+
+      <div id="faq-accordion" class="space-y-2">
+        <!-- Populated by JavaScript -->
+      </div>
+    </section>
+
+    <!-- 9. Help & Support / Contact Us Section -->
+    <section id="contact" class="py-20 bg-slate-100/50 dark:bg-slate-900/20 border-t border-slate-200/50 dark:border-slate-800/50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Contact details and Hours -->
+        <div class="lg:col-span-5 space-y-8">
+          
+          <div>
+            <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white mb-2">Jai Shree E-Mitra</h2>
+            <p class="text-sm font-bold text-brand-blue dark:text-brand-saffron uppercase tracking-wider" data-translate="tagline">Your Trusted Digital Service Center</p>
+          </div>
+
+          <div class="space-y-4">
+            <div class="flex items-start space-x-3">
+              <div class="text-brand-blue dark:text-brand-saffron mt-1"><i data-lucide="map-pin" class="w-5 h-5"></i></div>
+              <div>
+                <h4 class="font-bold text-slate-800 dark:text-white text-sm" data-translate="contactInfoTitle">Shop Address</h4>
+                <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">RK Puram B, Behind Muktidham, Kota, Rajasthan, India</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start space-x-3">
+              <div class="text-brand-blue dark:text-brand-saffron mt-1"><i data-lucide="phone-call" class="w-5 h-5"></i></div>
+              <div>
+                <h4 class="font-bold text-slate-800 dark:text-white text-sm">Call Number</h4>
+                <a href="tel:+919783625549" class="text-sm text-brand-blue dark:text-brand-saffron font-bold block mt-1 hover:underline">+91 9783625549</a>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3">
+              <div class="text-brand-blue dark:text-brand-saffron mt-1"><i data-lucide="calendar" class="w-5 h-5"></i></div>
+              <div>
+                <h4 class="font-bold text-slate-800 dark:text-white text-sm" data-translate="businessHoursTitle">Business Hours</h4>
+                <p class="text-xs text-slate-600 dark:text-slate-400 mt-1" data-translate="monSat">Monday – Saturday: 9:00 AM – 7:00 PM</p>
+                <p class="text-xs text-slate-600 dark:text-slate-400 mt-0.5" data-translate="sunday">Sunday: As per availability</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Google Maps Embed placeholder -->
+          <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-inner aspect-video relative group">
+            <div class="absolute inset-0 bg-slate-200 dark:bg-slate-900 flex flex-col justify-center items-center text-center p-4">
+              <i data-lucide="map" class="w-10 h-10 text-brand-blue dark:text-brand-saffron mb-2 animate-float"></i>
+              <span class="font-bold text-slate-800 dark:text-white text-sm">Interactive Map View</span>
+              <span class="text-xs text-slate-500 mt-1 px-4">Located behind Muktidham in RK Puram B</span>
+              <a href="https://maps.google.com/?q=RK+Puram+B+Kota+Behind+Muktidham" target="_blank" class="mt-4 px-4 py-2 bg-white dark:bg-slate-800 text-brand-blue dark:text-brand-saffron border rounded-xl font-semibold text-xs shadow hover-glow">Open Google Maps</a>
+            </div>
+          </div>
+
+          <!-- QR Code container -->
+          <div class="glass p-5 rounded-2xl flex items-center justify-between border border-slate-200 dark:border-slate-800 shadow-sm gap-4">
+            <div>
+              <h4 class="font-bold text-slate-800 dark:text-white text-sm">Scan to Chat</h4>
+              <p class="text-xs text-slate-500 mt-1 leading-relaxed">Scan this QR code from your phone's camera to instantly start a WhatsApp conversation with our shop desk.</p>
+            </div>
+            <!-- QR code image placeholder -->
+            <div class="w-20 h-20 bg-white border rounded-xl flex items-center justify-center p-1 flex-shrink-0">
+              <img src="assets/whatsapp_qr.png" alt="WhatsApp QR Code" class="w-full h-full object-contain">
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Appointment Form + Contact Us -->
+        <div class="lg:col-span-7 space-y-8">
+          
+          <!-- Appointment request -->
+          <div class="glass p-6 md:p-8 rounded-3xl border border-slate-200/60 dark:border-slate-800/60 shadow-sm">
+            <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-2" data-translate="aptTitle">Request an Appointment</h3>
+            <p class="text-xs text-slate-500 mb-6" data-translate="aptSub">Skip the waiting queue. Request a time slot to visit our center.</p>
+
+            <form onsubmit="submitAppointment(event)" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1" data-translate="fullName">Full Name</label>
+                  <input type="text" id="apt-name" required class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue text-slate-800 dark:text-white">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1" data-translate="mobileNum">Mobile Number</label>
+                  <input type="tel" id="apt-phone" required pattern="[0-9]{10}" placeholder="e.g. 9876543210" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue text-slate-800 dark:text-white">
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1" data-translate="navServices">Service</label>
+                  <select id="apt-service" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl px-3 py-2.5 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-brand-blue text-slate-800 dark:text-white cursor-pointer">
+                    <option value="general">General Query / Other</option>
+                    <option value="electricity_bill">Electricity Bill Payment</option>
+                    <option value="water_bill">Water Supply Bill Payment</option>
+                    <option value="aadhaar_ekyc">Aadhaar e-KYC</option>
+                    <option value="pension_ekyc">Pension e-KYC</option>
+                    <option value="rte_admission">RTE Admission Forms</option>
+                    <option value="govt_schemes">Govt Schemes Application</option>
+                    <option value="birth_cert">Birth Certificate</option>
+                    <option value="death_cert">Death Certificate</option>
+                    <option value="domicile_cert">Domicile (Mool Niwas)</option>
+                    <option value="income_cert">Income Certificate</option>
+                    <option value="caste_cert">Caste Certificate</option>
+                    <option value="jan_aadhaar">Jan Aadhaar Services</option>
+                    <option value="pan_card">PAN Card Assistance</option>
+                    <option value="all_emitra">All E-Mitra Services</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1" data-translate="prefDate">Preferred Date</label>
+                  <input type="date" id="apt-date" required class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue text-slate-800 dark:text-white cursor-pointer">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1" data-translate="prefTime">Preferred Time Slot</label>
+                  <select id="apt-time" required class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue text-slate-800 dark:text-white cursor-pointer">
+                    <option value="09:00 AM - 11:00 AM">09:00 AM - 11:00 AM</option>
+                    <option value="11:00 AM - 01:00 PM">11:00 AM - 01:00 PM</option>
+                    <option value="01:00 PM - 03:00 PM">01:00 PM - 03:00 PM</option>
+                    <option value="03:00 PM - 05:00 PM">03:00 PM - 05:00 PM</option>
+                    <option value="05:00 PM - 07:00 PM">05:00 PM - 07:00 PM</option>
+                  </select>
+                </div>
+              </div>
+
+              <button type="submit" class="w-full py-3 rounded-xl bg-brand-blue dark:bg-brand-saffron hover-glow text-white font-bold text-sm shadow-md" data-translate="bookAptBtn">Book Appointment</button>
+            </form>
+
+            <div id="apt-success-msg" class="hidden mt-4 p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-sm font-semibold flex items-center border border-emerald-200 dark:border-emerald-900/30">
+              <i data-lucide="check-circle" class="w-5 h-5 mr-3 flex-shrink-0"></i>
+              <span data-translate="aptSuccess">Appointment request sent! We will confirm your slot via SMS/WhatsApp.</span>
+            </div>
+          </div>
+
+          <!-- Message support -->
+          <div class="glass p-6 md:p-8 rounded-3xl border border-slate-200/60 dark:border-slate-800/60 shadow-sm">
+            <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-2" data-translate="contactFormTitle">Send a Message</h3>
+            <p class="text-xs text-slate-500 mb-6">Need help with electricity/water bills or birth/death registrations? Fill the form below.</p>
+
+            <form onsubmit="submitSupport(event)" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1" data-translate="fullName">Full Name</label>
+                  <input type="text" id="support-name" required class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue text-slate-800 dark:text-white">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1" data-translate="mobileNum">Mobile Number</label>
+                  <input type="tel" id="support-phone" required pattern="[0-9]{10}" placeholder="e.g. 9876543210" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue text-slate-800 dark:text-white">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1" data-translate="subject">Subject / Service Query</label>
+                <input type="text" id="support-subject" required class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue text-slate-800 dark:text-white">
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1" data-translate="message">Message Details</label>
+                <textarea id="support-message" required rows="3" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue text-slate-800 dark:text-white"></textarea>
+              </div>
+
+              <button type="submit" class="w-full py-3 rounded-xl bg-brand-blue dark:bg-brand-saffron hover-glow text-white font-bold text-sm shadow-md" data-translate="sendMessageBtn">Send Message</button>
+            </form>
+
+            <div id="support-success-msg" class="hidden mt-4 p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-sm font-semibold flex items-center border border-emerald-200 dark:border-emerald-900/30">
+              <i data-lucide="check-circle" class="w-5 h-5 mr-3 flex-shrink-0"></i>
+              <span data-translate="messageSuccess">Thank you! Your support request has been received. We will contact you shortly.</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ------------------------------------------------------------- -->
+  <!-- Standalone View: Track Your Application -->
+  <!-- ------------------------------------------------------------- -->
+  <main id="track-view-page" class="hidden max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-28 min-h-[75vh]">
+    <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+      <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white" data-translate="trackTitle">Track Your Application</h2>
+      <p class="text-base text-slate-500 dark:text-slate-400" data-translate="trackSub">Enter your application receipt number or reference number to check the latest status.</p>
+    </div>
+
+    <!-- Tracker input box -->
+    <div class="glass p-6 md:p-8 rounded-3xl border border-slate-200/60 dark:border-slate-800/60 shadow-sm max-w-xl mx-auto">
+      <form onsubmit="trackApplication(event)" class="flex flex-col sm:flex-row gap-3">
+        <div class="relative flex-1">
+          <input type="text" id="track-input" required placeholder="e.g. EM-554901" data-translate="trackPlaceholder" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl pl-10 pr-4 py-3 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-brand-blue uppercase text-slate-800 dark:text-white">
+          <div class="absolute inset-y-0 left-3 flex items-center text-slate-400">
+            <i data-lucide="search" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <button type="submit" class="px-6 py-3 rounded-xl bg-brand-blue dark:bg-brand-saffron hover-glow text-white font-bold text-sm shadow-md" data-translate="trackBtn">Check Status</button>
+      </form>
+
+      <!-- Tracker result feedback -->
+      <div id="track-result-details" class="hidden mt-6">
+        <!-- Rendered by JavaScript -->
+      </div>
+    </div>
+  </main>
+
+  <!-- ------------------------------------------------------------- -->
+  <!-- Standalone View: Downloads (Government Forms) -->
+  <!-- ------------------------------------------------------------- -->
+  <main id="downloads-view-page" class="hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 min-h-[75vh]">
+    <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+      <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white" data-translate="downloadTitle">Download Commonly Used Forms</h2>
+      <p class="text-base text-slate-500 dark:text-slate-400" data-translate="downloadSub">Get direct access to PDF form templates and document checklist guides.</p>
+    </div>
+
+    <!-- Downloads cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      <!-- Caste Certificate Form -->
+      <div class="glass p-6 rounded-2xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between hover-glow">
+        <div>
+          <div class="w-10 h-10 rounded-lg bg-brand-saffron/10 text-brand-saffron flex items-center justify-center mb-4">
+            <i data-lucide="file-text" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-bold text-slate-800 dark:text-white text-lg">Caste Certificate Application Form</h3>
+          <p class="text-xs text-slate-500 mt-2 leading-relaxed">Official Rajasthan application form for OBC/SC/ST category certificates (State & Central formats).</p>
+        </div>
+        <div class="mt-6 flex space-x-2">
+          <a href="#" onclick="alert('Sample PDF Form download triggered.')" class="flex-1 text-center py-2.5 rounded-lg bg-brand-blue dark:bg-brand-saffron text-white text-xs font-semibold" data-translate="btnDownload">Download PDF</a>
+          <button onclick="navigateToSection('documents'); document.getElementById('docs-service-select').value='caste_cert'; checkDocuments()" class="flex-1 py-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold" data-translate="btnViewChecklist">View Checklist</button>
+        </div>
+      </div>
+
+      <!-- Domicile Certificate Form -->
+      <div class="glass p-6 rounded-2xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between hover-glow">
+        <div>
+          <div class="w-10 h-10 rounded-lg bg-brand-saffron/10 text-brand-saffron flex items-center justify-center mb-4">
+            <i data-lucide="file-text" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-bold text-slate-800 dark:text-white text-lg">Domicile (Mool Niwas) Form</h3>
+          <p class="text-xs text-slate-500 mt-2 leading-relaxed">Application form and self-declaration affidavit template for permanent residence certificate.</p>
+        </div>
+        <div class="mt-6 flex space-x-2">
+          <a href="#" onclick="alert('Sample PDF Form download triggered.')" class="flex-1 text-center py-2.5 rounded-lg bg-brand-blue dark:bg-brand-saffron text-white text-xs font-semibold" data-translate="btnDownload">Download PDF</a>
+          <button onclick="navigateToSection('documents'); document.getElementById('docs-service-select').value='domicile_cert'; checkDocuments()" class="flex-1 py-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold" data-translate="btnViewChecklist">View Checklist</button>
+        </div>
+      </div>
+
+      <!-- Income Certificate 4-Page Format -->
+      <div class="glass p-6 rounded-2xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between hover-glow">
+        <div>
+          <div class="w-10 h-10 rounded-lg bg-brand-saffron/10 text-brand-saffron flex items-center justify-center mb-4">
+            <i data-lucide="file-text" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-bold text-slate-800 dark:text-white text-lg">Income Certificate (New 4-Page Format)</h3>
+          <p class="text-xs text-slate-500 mt-2 leading-relaxed">Standard income declaration format required for student scholarships and RTE school concessions.</p>
+        </div>
+        <div class="mt-6 flex space-x-2">
+          <a href="#" onclick="alert('Sample PDF Form download triggered.')" class="flex-1 text-center py-2.5 rounded-lg bg-brand-blue dark:bg-brand-saffron text-white text-xs font-semibold" data-translate="btnDownload">Download PDF</a>
+          <button onclick="navigateToSection('documents'); document.getElementById('docs-service-select').value='income_cert'; checkDocuments()" class="flex-1 py-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold" data-translate="btnViewChecklist">View Checklist</button>
+        </div>
+      </div>
+
+      <!-- Jan Aadhaar Correction Form -->
+      <div class="glass p-6 rounded-2xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between hover-glow">
+        <div>
+          <div class="w-10 h-10 rounded-lg bg-brand-saffron/10 text-brand-saffron flex items-center justify-center mb-4">
+            <i data-lucide="file-text" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-bold text-slate-800 dark:text-white text-lg">Jan Aadhaar Member Add/Update Form</h3>
+          <p class="text-xs text-slate-500 mt-2 leading-relaxed">Offline checklist and offline data sheet template to make corrections or add new family members.</p>
+        </div>
+        <div class="mt-6 flex space-x-2">
+          <a href="#" onclick="alert('Sample PDF Form download triggered.')" class="flex-1 text-center py-2.5 rounded-lg bg-brand-blue dark:bg-brand-saffron text-white text-xs font-semibold" data-translate="btnDownload">Download PDF</a>
+          <button onclick="navigateToSection('documents'); document.getElementById('docs-service-select').value='jan_aadhaar'; checkDocuments()" class="flex-1 py-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold" data-translate="btnViewChecklist">View Checklist</button>
+        </div>
+      </div>
+
+      <!-- Birth Certificate Declaration Form -->
+      <div class="glass p-6 rounded-2xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between hover-glow">
+        <div>
+          <div class="w-10 h-10 rounded-lg bg-brand-saffron/10 text-brand-saffron flex items-center justify-center mb-4">
+            <i data-lucide="file-text" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-bold text-slate-800 dark:text-white text-lg">Birth Registration Offline Form</h3>
+          <p class="text-xs text-slate-500 mt-2 leading-relaxed">Form required to report birth registrations to rural Panchayat or municipal bodies.</p>
+        </div>
+        <div class="mt-6 flex space-x-2">
+          <a href="#" onclick="alert('Sample PDF Form download triggered.')" class="flex-1 text-center py-2.5 rounded-lg bg-brand-blue dark:bg-brand-saffron text-white text-xs font-semibold" data-translate="btnDownload">Download PDF</a>
+          <button onclick="navigateToSection('documents'); document.getElementById('docs-service-select').value='birth_cert'; checkDocuments()" class="flex-1 py-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold" data-translate="btnViewChecklist">View Checklist</button>
+        </div>
+      </div>
+
+      <!-- RTE School Admission Manual -->
+      <div class="glass p-6 rounded-2xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between hover-glow">
+        <div>
+          <div class="w-10 h-10 rounded-lg bg-brand-saffron/10 text-brand-saffron flex items-center justify-center mb-4">
+            <i data-lucide="file-text" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-bold text-slate-800 dark:text-white text-lg">RTE Admission Scheme Guidelines</h3>
+          <p class="text-xs text-slate-500 mt-2 leading-relaxed">Full user manual with eligibility criteria, income thresholds, and selected schools quota info.</p>
+        </div>
+        <div class="mt-6 flex space-x-2">
+          <a href="#" onclick="alert('Sample PDF Form download triggered.')" class="flex-1 text-center py-2.5 rounded-lg bg-brand-blue dark:bg-brand-saffron text-white text-xs font-semibold" data-translate="btnDownload">Download PDF</a>
+          <button onclick="navigateToSection('documents'); document.getElementById('docs-service-select').value='rte_admission'; checkDocuments()" class="flex-1 py-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold" data-translate="btnViewChecklist">View Checklist</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ------------------------------------------------------------- -->
+  <!-- Standalone View: Admin Dashboard Panel -->
+  <!-- ------------------------------------------------------------- -->
+  <main id="admin-view-page" class="hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 min-h-[75vh]">
+    
+    <!-- 1. Admin Login Form -->
+    <div id="admin-login-section" class="max-w-md mx-auto glass p-6 md:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-lg">
+      <div class="text-center mb-6">
+        <div class="w-12 h-12 rounded-xl bg-brand-blue/15 text-brand-blue flex items-center justify-center mx-auto mb-3">
+          <i data-lucide="lock" class="w-6 h-6"></i>
+        </div>
+        <h2 class="text-xl font-bold text-slate-800 dark:text-white" data-translate="adminLoginTitle">Admin Security Login</h2>
+        <p class="text-xs text-slate-500 mt-1">Authorized personnel login. Default credential: <strong>admin</strong></p>
+      </div>
+
+      <form onsubmit="handleAdminLogin(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1" data-translate="adminPassword">Enter Admin Password</label>
+          <input type="password" id="admin-password-input" required class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue text-slate-800 dark:text-white">
+        </div>
+        <button type="submit" class="w-full py-3 rounded-xl bg-brand-blue dark:bg-brand-saffron hover-glow text-white font-bold text-sm shadow-md" data-translate="loginBtn">Login</button>
+      </form>
+      
+      <div id="admin-login-error" class="hidden mt-3 p-3 bg-red-50 dark:bg-red-950/20 text-red-600 dark:text-red-400 text-xs font-semibold rounded-lg text-center border border-red-100 dark:border-red-900/30">
+        <!-- Error text -->
+      </div>
+    </div>
+
+    <!-- 2. Authenticated Dashboard Panel -->
+    <div id="admin-dashboard-section" class="hidden space-y-10">
+      
+      <!-- Welcome Header -->
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-6">
+        <div>
+          <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white" data-translate="adminTitle">Jai Shree E-Mitra Admin Dashboard</h2>
+          <p class="text-sm text-slate-500 mt-1">Manage public scheme announcements, track application IDs, and approve user reviews.</p>
+        </div>
+        <button onclick="handleAdminLogout()" class="px-5 py-2.5 rounded-xl border border-rose-500/35 text-rose-500 text-sm font-semibold hover:bg-rose-500/5 transition-colors focus:outline-none" data-translate="adminLogout">Logout</button>
+      </div>
+
+      <!-- Content management layout grids -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <!-- Column 1: Reviews Verification Queue -->
+        <div class="glass p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <h3 class="font-bold text-lg text-slate-800 dark:text-white mb-4 border-b border-slate-200/50 dark:border-slate-800/50 pb-2" data-translate="adminPendingReviews">Pending Customer Reviews Queue</h3>
+          <div id="admin-reviews-list" class="max-h-[350px] overflow-y-auto pr-2">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Column 2: Announcements Publisher -->
+        <div class="glass p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <h3 class="font-bold text-lg text-slate-800 dark:text-white mb-4 border-b border-slate-200/50 dark:border-slate-800/50 pb-2" data-translate="adminActiveSchemes">Manage Schemes & Updates</h3>
+          
+          <!-- Add scheme form -->
+          <form onsubmit="submitNewScheme(event)" class="space-y-3 mb-6 bg-slate-50 dark:bg-slate-900/60 p-4 rounded-xl border border-slate-100 dark:border-slate-800">
+            <div class="grid grid-cols-2 gap-2">
+              <input type="text" id="new-scheme-title-en" placeholder="Scheme Title (English)" required class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 text-xs p-2 rounded focus:ring-1 focus:ring-brand-blue text-slate-800 dark:text-white">
+              <input type="text" id="new-scheme-title-hi" placeholder="योजना का नाम (Hindi)" required class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 text-xs p-2 rounded focus:ring-1 focus:ring-brand-blue text-slate-800 dark:text-white">
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <input type="text" id="new-scheme-cat-en" placeholder="Category EN (e.g. Scholarship)" required class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 text-xs p-2 rounded focus:ring-1 focus:ring-brand-blue text-slate-800 dark:text-white">
+              <input type="text" id="new-scheme-cat-hi" placeholder="श्रेणी HI (जैसे छात्रवृत्ति)" required class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 text-xs p-2 rounded focus:ring-1 focus:ring-brand-blue text-slate-800 dark:text-white">
+            </div>
+            <textarea id="new-scheme-desc-en" placeholder="Description details in English..." required rows="2" class="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 text-xs p-2 rounded focus:ring-1 focus:ring-brand-blue text-slate-800 dark:text-white"></textarea>
+            <textarea id="new-scheme-desc-hi" placeholder="योजना का पूर्ण विवरण हिंदी में लिखें..." required rows="2" class="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 text-xs p-2 rounded focus:ring-1 focus:ring-brand-blue text-slate-800 dark:text-white"></textarea>
+            <button type="submit" class="w-full py-2 bg-brand-blue text-white rounded text-xs font-bold" data-translate="addSchemeBtn">Add New Scheme/Update</button>
+          </form>
+
+          <div id="admin-announcements-list" class="max-h-[200px] overflow-y-auto pr-2">
+            <!-- List of schemes -->
+          </div>
+        </div>
+
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <!-- Application ID Status Updater -->
+        <div class="glass p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <h3 class="font-bold text-lg text-slate-800 dark:text-white mb-4 border-b border-slate-200/50 dark:border-slate-800/50 pb-2" data-translate="adminActiveApps">Manage Application Tracking Database</h3>
+          
+          <form onsubmit="submitNewApplication(event)" class="space-y-3 mb-6 bg-slate-50 dark:bg-slate-900/60 p-4 rounded-xl border border-slate-100 dark:border-slate-800">
+            <div class="grid grid-cols-2 gap-2">
+              <input type="text" id="new-app-id" placeholder="Application Receipt ID (e.g. EM-554904)" required class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 text-xs p-2 rounded focus:ring-1 focus:ring-brand-blue text-slate-800 dark:text-white">
+              <input type="text" id="new-app-client" placeholder="Customer Name" required class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 text-xs p-2 rounded focus:ring-1 focus:ring-brand-blue text-slate-800 dark:text-white">
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <select id="new-app-service" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 text-[10px] p-2 rounded focus:ring-1 focus:ring-brand-blue text-slate-800 dark:text-white cursor-pointer">
+                <!-- Services options loaded dynamically -->
+              </select>
+              <div class="grid grid-cols-2 gap-1">
+                <input type="text" id="new-app-status-en" placeholder="Status EN" required class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 text-xs p-1.5 rounded focus:ring-1 focus:ring-brand-blue text-slate-800 dark:text-white">
+                <input type="text" id="new-app-status-hi" placeholder="स्थिति HI" required class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 text-xs p-1.5 rounded focus:ring-1 focus:ring-brand-blue text-slate-800 dark:text-white">
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <input type="text" id="new-app-remarks-en" placeholder="Remarks (English)" required class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 text-xs p-2 rounded focus:ring-1 focus:ring-brand-blue text-slate-800 dark:text-white">
+              <input type="text" id="new-app-remarks-hi" placeholder="टिप्पणी (Hindi)" required class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 text-xs p-2 rounded focus:ring-1 focus:ring-brand-blue text-slate-800 dark:text-white">
+            </div>
+            <button type="submit" class="w-full py-2 bg-brand-blue text-white rounded text-xs font-bold" data-translate="addAppBtn">Add Application Status</button>
+          </form>
+
+          <div id="admin-apps-list" class="max-h-[220px] overflow-y-auto pr-2">
+            <!-- List of application status tracker data -->
+          </div>
+        </div>
+
+        <!-- Appointments & Support Queries Logs -->
+        <div class="space-y-6">
+          <!-- Appointments log -->
+          <div class="glass p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+            <h3 class="font-bold text-lg text-slate-800 dark:text-white mb-3 border-b border-slate-200/50 dark:border-slate-800/50 pb-2" data-translate="adminApts">View Booked Appointments</h3>
+            <div id="admin-apts-list" class="max-h-[160px] overflow-y-auto pr-2">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+          
+          <!-- Support messages log -->
+          <div class="glass p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+            <h3 class="font-bold text-lg text-slate-800 dark:text-white mb-3 border-b border-slate-200/50 dark:border-slate-800/50 pb-2" data-translate="adminSupport">Support Queries</h3>
+            <div id="admin-support-list" class="max-h-[160px] overflow-y-auto pr-2">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ------------------------------------------------------------- -->
+  <!-- 10. Sticky Footer Section -->
+  <!-- ------------------------------------------------------------- -->
+  <footer class="bg-slate-900 text-slate-400 py-16 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
+      
+      <div class="space-y-4">
+        <h3 class="text-white font-bold text-lg" data-translate="title">Jai Shree E-Mitra</h3>
+        <p class="text-xs leading-relaxed" data-translate="aboutText1">Jai Shree E-Mitra is your premier digital service and government documentation center located in RK Puram B, Kota (Behind Muktidham). We specialize in making complex government processes simple, transparent, and hassle-free for all citizens.</p>
+        <div class="flex space-x-3 pt-2">
+          <!-- Social icons mock -->
+          <a href="#" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-brand-blue text-white flex items-center justify-center transition-colors"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+          <a href="#" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-[#25D366] text-white flex items-center justify-center transition-colors"><i data-lucide="message-circle" class="w-4 h-4"></i></a>
+          <a href="https://maps.google.com/?q=RK+Puram+B+Kota+Behind+Muktidham" target="_blank" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-brand-saffron text-white flex items-center justify-center transition-colors"><i data-lucide="map" class="w-4 h-4"></i></a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4" data-translate="navServices">Services</h4>
+        <ul class="space-y-2 text-xs">
+          <li><a href="#services" onclick="navigateToSection('services'); openServiceModal('electricity_bill')" class="hover:underline">Electricity Bill</a></li>
+          <li><a href="#services" onclick="navigateToSection('services'); openServiceModal('water_bill')" class="hover:underline">Water Bill</a></li>
+          <li><a href="#services" onclick="navigateToSection('services'); openServiceModal('aadhaar_ekyc')" class="hover:underline">Aadhaar e-KYC</a></li>
+          <li><a href="#services" onclick="navigateToSection('services'); openServiceModal('pension_ekyc')" class="hover:underline">Pension e-KYC</a></li>
+          <li><a href="#services" onclick="navigateToSection('services'); openServiceModal('rte_admission')" class="hover:underline">RTE Admission Forms</a></li>
+          <li><a href="#services" onclick="navigateToSection('services'); openServiceModal('domicile_cert')" class="hover:underline">Domicile (Mool Niwas)</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4" data-translate="navSchemes">Government Schemes</h4>
+        <ul class="space-y-2 text-xs">
+          <li><a href="#updates" onclick="navigateToSection('updates')" class="hover:underline">Post-Matric Scholarships</a></li>
+          <li><a href="#updates" onclick="navigateToSection('updates')" class="hover:underline">RTE Lottery Results</a></li>
+          <li><a href="#updates" onclick="navigateToSection('updates')" class="hover:underline">Pension e-KYC Deadlines</a></li>
+          <li><a href="#faq" onclick="navigateToSection('faq')" class="hover:underline" data-translate="navFaq">FAQ</a></li>
+          <li><button onclick="navigateToPage('track')" class="hover:underline" data-translate="navTrack">Track Application</button></li>
+        </ul>
+      </div>
+
+      <div class="space-y-4">
+        <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4" data-translate="navContact">Contact</h4>
+        <ul class="space-y-2 text-xs">
+          <li class="flex items-center"><i data-lucide="map-pin" class="w-3.5 h-3.5 mr-2"></i> RK Puram B, Behind Muktidham, Kota</li>
+          <li class="flex items-center"><i data-lucide="phone" class="w-3.5 h-3.5 mr-2"></i> +91 9783625549</li>
+          <li class="flex items-center"><i data-lucide="clock" class="w-3.5 h-3.5 mr-2"></i> Mon-Sat: 9:00 AM - 7:00 PM</li>
+        </ul>
+        <div class="flex space-x-4 text-xs pt-4 border-t border-slate-800">
+          <a href="#" onclick="alert('Privacy Policy Mock')" class="hover:underline">Privacy Policy</a>
+          <a href="#" onclick="alert('Terms & Conditions Mock')" class="hover:underline">Terms & Conditions</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-slate-800 text-center text-xs">
+      <p data-translate="footerText">© 2026 Jai Shree E-Mitra. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ------------------------------------------------------------- -->
+  <!-- 11. Floating Utility Buttons (WhatsApp, Call, Scroll-to-Top) -->
+  <!-- ------------------------------------------------------------- -->
+  <div class="fixed bottom-6 right-6 flex flex-col space-y-3 z-40 items-end">
+    
+    <!-- Floating Simulated Live Chat Button -->
+    <button onclick="toggleChat()" class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-slate-800 hover:bg-slate-900 text-white flex items-center justify-center shadow-lg hover-glow animate-float focus:outline-none" title="Live Support Chat">
+      <i data-lucide="message-square" class="w-5 h-5 md:w-6 md:h-6"></i>
+    </button>
+    
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919783625549" target="_blank" class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#25D366] hover:bg-[#20ba5a] text-white flex items-center justify-center shadow-lg hover-glow focus:outline-none" title="WhatsApp Chat">
+      <i data-lucide="message-circle" class="w-6 h-6 md:w-7 md:h-7"></i>
+    </a>
+    
+    <!-- Floating Call Button -->
+    <a href="tel:+919783625549" class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-brand-blue hover:bg-brand-blueDark text-white flex items-center justify-center shadow-lg hover-glow focus:outline-none" title="Call Us Directly">
+      <i data-lucide="phone" class="w-5 h-5 md:w-6 md:h-6"></i>
+    </a>
+
+    <!-- Scroll to Top -->
+    <button id="scroll-top-btn" onclick="scrollToTop()" class="hidden w-10 h-10 rounded-full bg-white dark:bg-slate-900 border text-slate-600 dark:text-slate-300 flex items-center justify-center shadow-md hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none">
+      <i data-lucide="chevron-up" class="w-5 h-5"></i>
+    </button>
+
+  </div>
+
+  <!-- ------------------------------------------------------------- -->
+  <!-- 12. Floating Chat Dialog Box -->
+  <!-- ------------------------------------------------------------- -->
+  <div id="chat-box-container" class="hidden fixed bottom-24 right-6 w-[320px] md:w-[360px] h-[420px] bg-white dark:bg-slate-950 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-850 flex-col overflow-hidden z-50 animate-fadeIn">
+    <!-- Header -->
+    <div class="bg-gradient-to-r from-brand-blue to-brand-saffron p-4 text-white flex items-center justify-between">
+      <div class="flex items-center space-x-2">
+        <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center font-bold text-sm">EM</div>
+        <div>
+          <h4 class="font-bold text-sm">E-Mitra Live Chat Assist</h4>
+          <span class="text-[10px] opacity-85">Online support agent</span>
+        </div>
+      </div>
+      <button onclick="toggleChat()" class="text-white hover:opacity-80 focus:outline-none"><i data-lucide="x" class="w-5 h-5"></i></button>
+    </div>
+    
+    <!-- Messages Body -->
+    <div id="chat-messages-feed" class="flex-1 p-4 overflow-y-auto space-y-3 flex flex-col">
+      <!-- Bubbles loaded dynamically -->
+    </div>
+    
+    <!-- Input box -->
+    <form onsubmit="handleSendChatMessage(event)" class="border-t border-slate-100 dark:border-slate-850 p-3 flex gap-2">
+      <input type="text" id="chat-input-field" required placeholder="Type your query..." data-translate="chatPlaceholder" class="flex-1 bg-slate-50 dark:bg-slate-900 border rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-1 focus:ring-brand-blue text-slate-800 dark:text-white">
+      <button type="submit" class="px-4 py-2 bg-brand-blue text-white rounded-xl text-xs font-bold hover:bg-brand-blueDark" data-translate="chatSend">Send</button>
+    </form>
+  </div>
+
+  <!-- ------------------------------------------------------------- -->
+  <!-- 13. Service Detailed View Overlay Modal -->
+  <!-- ------------------------------------------------------------- -->
+  <div id="service-modal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm items-center justify-center p-4">
+    <div class="bg-white dark:bg-slate-950 max-w-2xl w-full rounded-3xl p-6 md:p-8 border border-slate-100 dark:border-slate-850 shadow-2xl relative animate-fadeIn flex flex-col">
+      <!-- Close button -->
+      <button onclick="closeServiceModal()" class="absolute top-4 right-4 text-slate-500 hover:text-slate-800 dark:hover:text-white focus:outline-none"><i data-lucide="x" class="w-6 h-6"></i></button>
+      
+      <!-- Content populated dynamically -->
+      <div id="service-modal-content" class="space-y-4">
+        <!-- Content loaded dynamically via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ------------------------------------------------------------- -->
+  <!-- 14. Gallery Image Lightbox Overlay -->
+  <!-- ------------------------------------------------------------- -->
+  <div id="lightbox" class="hidden fixed inset-0 z-50 bg-black/90 backdrop-blur-sm items-center justify-center p-4 flex-col" onclick="closeLightbox()">
+    <button class="absolute top-6 right-6 text-white/70 hover:text-white focus:outline-none" onclick="closeLightbox()"><i data-lucide="x" class="w-8 h-8"></i></button>
+    <img id="lightbox-img" src="" class="max-h-[80vh] max-w-full rounded-lg shadow-2xl object-contain" alt="Gallery preview large">
+    <p id="lightbox-caption" class="text-white text-sm font-semibold text-center mt-4 max-w-[80vw] bg-black/40 px-4 py-2 rounded-xl"></p>
+  </div>
+
+  <!-- Logic script inclusion -->
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+/* Custom CSS for Jai Shree E-Mitra Website */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Rozha+One&display=swap');
+
+:root {
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  
+  /* Light Mode Palette */
+  --color-saffron: #FF9933;
+  --color-saffron-hover: #E6801A;
+  --color-saffron-light: #FFECE0;
+  --color-blue: #2563EB;
+  --color-blue-hover: #1D4ED8;
+  --color-blue-light: #EFF6FF;
+  --color-navy: #0F172A;
+  --color-text-main: #334155;
+  --color-bg-main: #F8FAFC;
+  --color-card-bg: rgba(255, 255, 255, 0.75);
+  --color-card-border: rgba(226, 232, 240, 0.8);
+  --color-nav-bg: rgba(255, 255, 255, 0.85);
+  --color-ring: rgba(37, 99, 235, 0.2);
+}
+
+.dark {
+  /* Dark Mode Palette */
+  --color-saffron: #FF9933;
+  --color-saffron-hover: #FFA347;
+  --color-saffron-light: #2C1F15;
+  --color-blue: #3B82F6;
+  --color-blue-hover: #60A5FA;
+  --color-blue-light: #1E293B;
+  --color-navy: #0F172A;
+  --color-text-main: #CBD5E1;
+  --color-bg-main: #0B0F19;
+  --color-card-bg: rgba(15, 23, 42, 0.6);
+  --color-card-border: rgba(51, 65, 85, 0.5);
+  --color-nav-bg: rgba(11, 15, 25, 0.85);
+  --color-ring: rgba(59, 130, 246, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg-main);
+  color: var(--color-text-main);
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
+/* Glassmorphism Styles */
+.glass {
+  background-color: var(--color-card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-card-border);
+}
+
+.glass-nav {
+  background-color: var(--color-nav-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--color-card-border);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-saffron);
+}
+
+/* Saffron Blue Gradient text */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-saffron) 10%, var(--color-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-saffron {
+  background: linear-gradient(135deg, #FFA347 0%, var(--color-saffron) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animations */
+@keyframes pulse-slow {
+  0%, 100% { transform: scale(1); opacity: 0.2; }
+  50% { transform: scale(1.05); opacity: 0.3; }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s infinite ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 4s infinite ease-in-out;
+}
+
+/* Custom transitions and interactive glows */
+.hover-glow {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hover-glow:hover {
+  box-shadow: 0 10px 25px -5px var(--color-ring);
+  transform: translateY(-2px);
+}
+
+/* Hindi Decorative Font for Heading Accent */
+.hindi-title {
+  font-family: 'Rozha One', serif;
+}
+
+/* Utility to hide/show views */
+.view-section {
+  display: none;
+}
+.view-section.active {
+  display: block;
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Review Photo aspect ratios */
+.review-img {
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Accordion Active height transitions */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+.accordion-content.active {
+  max-height: 500px;
+  transition: max-height 0.5s ease-in;
+}
+
+/* Lightbox styles */
+#lightbox {
+  display: none;
+}
+#lightbox.active {
+  display: flex;
+}
